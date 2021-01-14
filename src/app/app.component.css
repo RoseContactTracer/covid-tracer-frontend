@@ -1,0 +1,10 @@
+mat-toolbar {
+    background: firebrick;
+    align-items: center;
+    color: floralwhite;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+spacer {
+    padding: 10px;
+}
