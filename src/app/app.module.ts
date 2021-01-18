@@ -10,14 +10,16 @@ import { MatTableModule } from '@angular/material/table';
 import { DashboardComponent } from './dashboard/dashboard.component'  
 import {MatGridListModule} from '@angular/material/grid-list'
 import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import { CaseComponent } from './case/case.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserlistComponent,
-    DashboardComponent
+    DashboardComponent,
+    CaseComponent
   ],
   imports: [
     BrowserModule,
