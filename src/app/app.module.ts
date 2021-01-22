@@ -12,14 +12,15 @@ import {MatGridListModule} from '@angular/material/grid-list'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatIconModule} from '@angular/material/icon';
 import { CaseComponent } from './case/case.component'
-
+import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserlistComponent,
     DashboardComponent,
-    CaseComponent
+    CaseComponent,
+    AssignedCasesComponent
   ],
   imports: [
     BrowserModule,
