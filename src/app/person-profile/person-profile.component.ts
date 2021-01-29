@@ -9,7 +9,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./person-profile.component.css']
 })
 export class PersonProfileComponent implements OnInit {
-  displayedColumns: string[] = ['firstName', 'middleName', 'lastName', 'roseID', 'email', 'phoneNumber', 'address'];
+  displayedColumns: string[] = ['firstName', 'middleName', 'lastName', 'roseID', 'email', 'phoneNumber', 'address', 'actions'];
 
   dataSource;
 
@@ -26,5 +26,11 @@ export class PersonProfileComponent implements OnInit {
         }
       }
     )
+  }
+
+  addCase(user: any, id: any) {
+      this.UserService.addCase(id, user).subscribe(data => {
+        this.dataSource = new MatTableDataSource(data);
+      });
   }
 }

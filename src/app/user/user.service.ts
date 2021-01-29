@@ -21,5 +21,9 @@ export class UserService {
     console.log(id)
     return this.http.get<any>(this.usersUrl + '/' + id);
   }
+
+  public addCase(id: number, user: any): Observable<any> {
+    return this.http.put<any>(this.usersUrl + '/', id, user);
+  }
   
 }
