@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
+import { AssignedCasesService } from '../assigned-cases.service';
 
 export interface AssignedCases {
   name: String
@@ -27,8 +28,14 @@ export class AssignedCasesComponent implements OnInit {
   displayedColumns: string[] = ['name', 'student_id', 'cell_number', 'quarantine_location', 'Tracer'];
 
   dataSource = SAMPLE_DATA;
-  constructor() { }
+  AssignedCases: any;
+  constructor(private assignedCasesService: AssignedCasesService) { }
 
   ngOnInit() {
+    this.getAssignedCases();
+  }
+
+  getAssignedCases(): void {
+    this.AssignedCases = this.assignedCasesService.getAssignedCases();
   }
 }
