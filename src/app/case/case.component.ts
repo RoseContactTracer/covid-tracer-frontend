@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
-
-export interface Case {
-  name: String 
-  student_id: String
-  cell_number: String
-  quarantine_location: String
-  quarantine_end_date: String
-}
+import { MatTableModule } from '@angular/material/table';
+import { Case } from './case'
 
 const SAMPLE_DATA: Case[] = [
   {name: 'Maura Coriale', student_id: '801XXXXXX', cell_number: '505-555-5555', quarantine_location: 'Holiday Inn 101', quarantine_end_date: '1/24/2021'},
