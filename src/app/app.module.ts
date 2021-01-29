@@ -14,6 +14,7 @@ import { CaseComponent } from './case/case.component'
 import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user/user.service';
+import { PersonProfileComponent } from './person-profile/person-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserService } from './user/user.service';
     UserlistComponent,
     DashboardComponent,
     CaseComponent,
-    AssignedCasesComponent
+    AssignedCasesComponent,
+    PersonProfileComponent
   ],
   imports: [
     BrowserModule,

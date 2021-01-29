@@ -1,4 +1,5 @@
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
   <!-- Name Column -->
   <ng-container matColumnDef="firstName">
@@ -43,6 +44,5 @@
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"
-  [routerLink]="['/userlist', row.id]">{{row.roseID}}</mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </table>
