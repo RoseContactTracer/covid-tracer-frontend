@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserComponent } from './user/user.component';
+import { User } from './user/user.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { MatTableModule } from '@angular/material/table';
 import { DashboardComponent } from './dashboard/dashboard.component'  
@@ -14,15 +14,18 @@ import { CaseComponent } from './case/case.component'
 import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
 import { CaseService } from './case/case.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './user/user.service';
+import { PersonProfileComponent } from './person-profile/person-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    User,
     UserlistComponent,
     DashboardComponent,
     CaseComponent,
-    AssignedCasesComponent
+    AssignedCasesComponent,
+    PersonProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [CaseService],
+  providers: [CaseService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
