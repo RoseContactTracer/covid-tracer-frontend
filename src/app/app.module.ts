@@ -12,6 +12,9 @@ import {MatGridListModule} from '@angular/material/grid-list'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatIconModule} from '@angular/material/icon';
 import { CaseComponent } from './case/case.component'
+import { CaseService } from './case/case.service';
+import { HttpClientModule } from '@angular/common/http';
+import { Case } from './case/case';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,10 @@ import { CaseComponent } from './case/case.component'
     MatTableModule,
     MatGridListModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

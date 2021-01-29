@@ -1,33 +1,32 @@
-<h1 text="KILL ME"></h1>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
   <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  <ng-container matColumnDef="firstName">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.person.firstName}} </mat-cell>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="student_id">
-    <th mat-header-cell *matHeaderCellDef> Student ID </th>
-    <td mat-cell *matCellDef="let element"> {{element.student_id}} </td>
+  <ng-container matColumnDef="roseID">
+    <mat-header-cell *matHeaderCellDef> Student ID </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.person.roseID}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="cell_number">
-    <th mat-header-cell *matHeaderCellDef> Cell Number </th>
-    <td mat-cell *matCellDef="let element"> {{element.cell_number}} </td>
+  <ng-container matColumnDef="phoneNumber">
+    <mat-header-cell *matHeaderCellDef> Cell Number </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.person.phoneNumber}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="quarantine_location">
-    <th mat-header-cell *matHeaderCellDef> Quarantine Location </th>
-    <td mat-cell *matCellDef="let element"> {{element.quarantine_location}} </td>
+  <ng-container matColumnDef="address">
+    <mat-header-cell *matHeaderCellDef> Quarantine Location </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.quarantineLocation.address}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="quarantine_end_date">
-    <th mat-header-cell *matHeaderCellDef> End of Quarantine </th>
-    <td mat-cell *matCellDef="let element"> {{element.quarantine_end_date}} </td>
+  <ng-container matColumnDef="quarantineEndDate">
+    <mat-header-cell *matHeaderCellDef> End of Quarantine </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.quarantineEndDate}} </mat-cell>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </table>

@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserlistComponent } from './userlist/userlist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CaseComponent } from './case/case.component';
+import { config } from 'rxjs';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'userlist', component: UserlistComponent },
-  { path: 'case', component: CaseComponent}
+  { path: 'positive-case', component: CaseComponent}
 
 ];
 
