@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
-import { Case } from './case';
 import { CaseService } from './case.service';
 
 @Component({
@@ -9,15 +8,15 @@ import { CaseService } from './case.service';
   styleUrls: ['./case.component.css']
 })
 export class CaseComponent implements OnInit {
-
   displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate'];
-  dataSource;
+  dataSource: MatTableDataSource<any>;
 
   constructor(private caseService: CaseService) { }
 
   private getCases(): void {
+    this.dataSource = new MatTableDataSource([]);
     this.caseService.getCases().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.data = data;
     });
   }
 
