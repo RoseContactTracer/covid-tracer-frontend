@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Case } from './case';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
