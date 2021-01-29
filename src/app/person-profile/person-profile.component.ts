@@ -28,9 +28,16 @@ export class PersonProfileComponent implements OnInit {
     )
   }
 
-  addCase(user: any, id: any) {
-      this.UserService.addCase(id, user).subscribe(data => {
-        this.dataSource = new MatTableDataSource(data);
-      });
+  addCase(user: any) {
+    this._Activatedroute.paramMap.subscribe(params => {
+      const personID = + params.get('id');
+      if (personID) {
+        console.log(personID)
+        this.UserService.addCase(personID, user).subscribe(data => {
+          this.dataSource = new MatTableDataSource(data);
+        });
+        }
+      }
+    )   
   }
 }

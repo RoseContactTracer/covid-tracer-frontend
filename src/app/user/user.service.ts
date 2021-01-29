@@ -23,7 +23,7 @@ export class UserService {
   }
 
   public addCase(id: number, user: any): Observable<any> {
-    return this.http.put<any>(this.usersUrl + '/', id, user);
+    return this.http.post<any>(this.usersUrl + '/' + id, user);
   }
   
 }
