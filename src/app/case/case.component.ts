@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CaseService } from './case.service';
 
 @Component({
@@ -7,21 +9,27 @@ import { CaseService } from './case.service';
   templateUrl: './case.component.html',
   styleUrls: ['./case.component.css']
 })
-export class CaseComponent implements OnInit {
+export class CaseComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate'];
   dataSource: MatTableDataSource<any>;
 
-  constructor(private caseService: CaseService) { }
+  private destroyed: Subject<boolean> = new Subject();
 
-  private getCases(): void {
-    this.dataSource = new MatTableDataSource([]);
-    this.caseService.getCases().subscribe(data => {
-      this.dataSource.data = data;
-    });
-  }
+  constructor(private caseService: CaseService) { }
 
   ngOnInit() {
     this.getCases();
   }
 
+  ngOnDestroy(): void {
+    this.destroyed.next();
+    this.destroyed.complete();
+  }
+
+  private getCases(): void {
+    this.caseService.getCases().pipe(takeUntil(this.destroyed)).subscribe(data => {
+      console.table(data);
+      this.dataSource = new MatTableDataSource(data);
+    });
+  }
 }

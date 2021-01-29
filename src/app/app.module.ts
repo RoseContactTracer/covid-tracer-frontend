@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { User } from './user/user.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { MatTableModule } from '@angular/material/table';
 import { DashboardComponent } from './dashboard/dashboard.component'  
@@ -20,7 +19,6 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
 @NgModule({
   declarations: [
     AppComponent,
-    User,
     UserlistComponent,
     DashboardComponent,
     CaseComponent,

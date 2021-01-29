@@ -3,23 +3,23 @@
   <!-- Name Column -->
   <ng-container matColumnDef="firstName">
     <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.person.firstName}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.person?.firstName}} </mat-cell>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="roseID">
     <mat-header-cell *matHeaderCellDef> Student ID </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.person.roseID}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.person?.roseID}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="phoneNumber">
     <mat-header-cell *matHeaderCellDef> Cell Number </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.person.phoneNumber}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.person?.phoneNumber}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="address">
     <mat-header-cell *matHeaderCellDef> Quarantine Location </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.quarantineLocation.address}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.quarantineLocation?.address}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="quarantineEndDate">
