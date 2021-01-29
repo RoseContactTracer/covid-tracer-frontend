@@ -13,6 +13,9 @@ export class PersonProfileComponent implements OnInit {
 
   dataSource;
 
+  response;
+  date;
+
   constructor(private UserService: UserService, private _Activatedroute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -29,15 +32,10 @@ export class PersonProfileComponent implements OnInit {
   }
 
   addCase(user: any) {
-    this._Activatedroute.paramMap.subscribe(params => {
-      const personID = + params.get('id');
-      if (personID) {
-        console.log(personID)
-        this.UserService.addCase(personID, user).subscribe(data => {
-          this.dataSource = new MatTableDataSource(data);
-        });
-        }
-      }
-    )   
+    this.date = new Date();
+    this.response = {user, "testDate":this.date, "symptomaticStartDate":this.date, "quarantineEndDate":this.date, "needsTransportation":false}
+    this.UserService.addCase(user, this.response).subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });   
   }
 }
