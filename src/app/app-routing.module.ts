@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'userlist', component: UserlistComponent },
-  { path: 'case', component: CaseComponent },
+  { path: 'positive-case', component: CaseComponent },
   { path: 'AssignedCases', component: AssignedCasesComponent }
 
 ];

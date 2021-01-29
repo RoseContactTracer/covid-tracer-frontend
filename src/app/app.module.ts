@@ -14,7 +14,6 @@ import { CaseComponent } from './case/case.component'
 import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
 import { CaseService } from './case/case.service';
 import { HttpClientModule } from '@angular/common/http';
-import { Case } from './case/case';
 
 @NgModule({
   declarations: [
