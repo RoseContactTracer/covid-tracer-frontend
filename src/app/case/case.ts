@@ -1,3 +1,5 @@
+import { identifierModuleUrl } from '@angular/compiler';
+
 export class Case {
   id: number;
   needs_transportation: boolean;

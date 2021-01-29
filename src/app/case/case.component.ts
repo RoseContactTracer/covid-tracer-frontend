@@ -13,13 +13,12 @@ export class CaseComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate'];
   dataSource;
 
-  constructor(private CaseService: CaseService) { }
+  constructor(private caseService: CaseService) { }
 
   private getCases(): void {
-    this.CaseService.getCases()
-      .subscribe(data => {
-        this.dataSource = new MatTableDataSource(data);
-      });
+    this.caseService.getCases().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
   }
 
   ngOnInit() {
