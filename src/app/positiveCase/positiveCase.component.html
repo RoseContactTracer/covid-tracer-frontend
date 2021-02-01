@@ -1,12 +1,10 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
-  <!-- Name Column -->
   <ng-container matColumnDef="firstName">
     <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.person?.firstName}} </mat-cell>
   </ng-container>
 
-  <!-- Weight Column -->
   <ng-container matColumnDef="roseID">
     <mat-header-cell *matHeaderCellDef> Student ID </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.person?.roseID}} </mat-cell>
