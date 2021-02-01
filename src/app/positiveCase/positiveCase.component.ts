@@ -6,8 +6,8 @@ import { PositiveCaseService } from './positiveCase.service';
 
 @Component({
   selector: 'app-case',
-  templateUrl: './case.component.html',
-  styleUrls: ['./case.component.css']
+  templateUrl: './positiveCase.component.html',
+  styleUrls: ['./positiveCase.component.css']
 })
 export class PositiveCaseComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate'];
