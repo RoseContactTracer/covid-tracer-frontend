@@ -2,20 +2,20 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CaseService } from './case.service';
+import { PositiveCaseService } from './positiveCase.service';
 
 @Component({
   selector: 'app-case',
-  templateUrl: './case.component.html',
-  styleUrls: ['./case.component.css']
+  templateUrl: './positiveCase.component.html',
+  styleUrls: ['./positiveCase.component.css']
 })
-export class CaseComponent implements OnInit, OnDestroy {
+export class PositiveCaseComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate'];
   dataSource: MatTableDataSource<any>;
 
   private destroyed: Subject<boolean> = new Subject();
 
-  constructor(private caseService: CaseService) { }
+  constructor(private caseService: PositiveCaseService) { }
 
   ngOnInit() {
     this.getCases();
