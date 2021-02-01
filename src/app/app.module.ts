@@ -9,9 +9,9 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import {MatGridListModule} from '@angular/material/grid-list'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatIconModule} from '@angular/material/icon';
-import { CaseComponent } from './case/case.component'
+import { PositiveCaseComponent } from './positiveCase/positiveCase.component'
 import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
-import { CaseService } from './case/case.service';
+import { PositiveCaseService } from './positiveCase/positiveCase.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user/user.service';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
@@ -21,7 +21,7 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
     AppComponent,
     UserlistComponent,
     DashboardComponent,
-    CaseComponent,
+    PositiveCaseComponent,
     AssignedCasesComponent,
     PersonProfileComponent
   ],
@@ -35,7 +35,7 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
     MatIconModule,
     HttpClientModule
   ],
-  providers: [CaseService, UserService],
+  providers: [PositiveCaseService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

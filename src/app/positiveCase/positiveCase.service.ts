@@ -6,7 +6,7 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class CaseService {
+export class PositiveCaseService {
   
   private casesUrl: string;
 
