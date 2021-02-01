@@ -1,0 +1,30 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+  <ng-container matColumnDef="firstName">
+    <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.person?.firstName}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="roseID">
+    <mat-header-cell *matHeaderCellDef> Student ID </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.person?.roseID}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="phoneNumber">
+    <mat-header-cell *matHeaderCellDef> Cell Number </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.person?.phoneNumber}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <mat-header-cell *matHeaderCellDef> Quarantine Location </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.quarantineLocation?.address}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="quarantineEndDate">
+    <mat-header-cell *matHeaderCellDef> End of Quarantine </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.quarantineEndDate}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
