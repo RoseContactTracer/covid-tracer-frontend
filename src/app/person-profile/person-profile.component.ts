@@ -52,7 +52,7 @@ export class PersonProfileComponent implements OnInit {
     });
   }
 
-  addCase(user: User, testDate: string) {
+  addCase(user: User, testDate: Date) {
     this.response = { user, "testDate": testDate, "quarantineEndDate": testDate }
     console.log(this.response);
     this.UserService.addCase(user.id, this.response).subscribe(data => {
