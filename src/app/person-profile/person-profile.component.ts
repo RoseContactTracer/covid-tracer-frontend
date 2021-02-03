@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatButton, MatTableDataSource } from '@angular/material';
+import { MatButton, MatDatepicker, MatTableDataSource } from '@angular/material';
 import { UserService } from '../user/user.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { User } from '../models/user.model';
@@ -48,7 +48,7 @@ export class PersonProfileComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      this.addCase(user, result.Date);
+      this.addCase(user, result);
     });
   }
 
