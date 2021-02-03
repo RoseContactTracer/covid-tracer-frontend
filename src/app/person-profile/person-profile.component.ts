@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatButton, MatTableDataSource } from '@angular/material';
 import { UserService } from '../user/user.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { User } from '../models/user.model';
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { AddCaseDialogueComponent } from '../add-case-dialogue/add-case-dialogue.component';
 
 @Component({
   selector: 'app-person-profile',
@@ -14,9 +17,13 @@ export class PersonProfileComponent implements OnInit {
   dataSource;
 
   response;
-  date;
 
-  constructor(private UserService: UserService, private _Activatedroute: ActivatedRoute) { }
+  user: User;
+  testDate: Date;
+
+  @ViewChild(MatButton) button: MatButton;
+
+  constructor(private UserService: UserService, private _Activatedroute: ActivatedRoute, private dialog: MatDialog) { }
 
   ngOnInit() {
     this._Activatedroute.paramMap.subscribe(params => {
@@ -26,16 +33,31 @@ export class PersonProfileComponent implements OnInit {
         this.UserService.findByID(personID).subscribe(data => {
           this.dataSource = new MatTableDataSource(data);
         });
-        }
       }
+    }
     )
   }
 
-  addCase(user: any) {
-    this.date = new Date();
-    this.response = {user, "testDate":this.date, "symptomaticStartDate":this.date, "quarantineEndDate":this.date, "needsTransportation":false}
-    this.UserService.addCase(user, this.response).subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
-    });   
+  openDialogue(user: User): void {
+    const bodyRect = document.body.getBoundingClientRect();
+    const dialogRef = this.dialog.open(AddCaseDialogueComponent, {
+      width: '500px',
+      data: { "testDate": this.testDate },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      this.addCase(user, result.Date);
+    });
   }
+
+  addCase(user: User, testDate: string) {
+    this.response = { user, "testDate": testDate, "quarantineEndDate": testDate }
+    console.log(this.response);
+    this.UserService.addCase(user.id, this.response).subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
+  }
+
 }

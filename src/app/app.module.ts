@@ -1,20 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserlistComponent } from './userlist/userlist.component';
 import { MatTableModule } from '@angular/material/table';
-import { DashboardComponent } from './dashboard/dashboard.component'  
-import {MatGridListModule} from '@angular/material/grid-list'
-import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatIconModule} from '@angular/material/icon';
+import { DashboardComponent } from './dashboard/dashboard.component'
+import { MatGridListModule } from '@angular/material/grid-list'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule, MatDatepickerModule, MatNativeDateModule } from "@angular/material";
 import { PositiveCaseComponent } from './positiveCase/positiveCase.component'
 import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
 import { PositiveCaseService } from './positiveCase/positiveCase.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user/user.service';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
+import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
     DashboardComponent,
     PositiveCaseComponent,
     AssignedCasesComponent,
-    PersonProfileComponent
+    PersonProfileComponent,
+    AddCaseDialogueComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +37,15 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
     MatGridListModule,
     MatToolbarModule,
     MatIconModule,
-    HttpClientModule
+    MatDialogModule,
+    HttpClientModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [PositiveCaseService, UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddCaseDialogueComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

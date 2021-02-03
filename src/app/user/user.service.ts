@@ -17,13 +17,13 @@ export class UserService {
     return this.http.get<User[]>(this.usersUrl);
   }
 
-  public findByID(id: number): Observable<any> {
+  public findByID(id: number): Observable<User[]> {
     console.log(id)
-    return this.http.get<any>(this.usersUrl + '/' + id);
+    return this.http.get<User[]>(this.usersUrl + '/' + id);
   }
 
-  public addCase(id: number, user: any): Observable<any> {
-    return this.http.post<any>(this.usersUrl + '/' + id, user);
+  public addCase(id: number, user: User[]): Observable<User[]> {
+    return this.http.post<User[]>(this.usersUrl + '/' + id, user);
   }
-  
+
 }
