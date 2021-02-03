@@ -20,6 +20,7 @@ export class PersonProfileComponent implements OnInit {
 
   user: User;
   testDate: Date;
+  quarantineEndDate: Date;
 
   @ViewChild(MatButton) button: MatButton;
 
@@ -42,7 +43,7 @@ export class PersonProfileComponent implements OnInit {
     const bodyRect = document.body.getBoundingClientRect();
     const dialogRef = this.dialog.open(AddCaseDialogueComponent, {
       width: '500px',
-      data: { "testDate": this.testDate },
+      data: { "testDate": this.testDate, "quarantineEndDate": this.quarantineEndDate },
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -53,7 +54,9 @@ export class PersonProfileComponent implements OnInit {
   }
 
   addCase(user: User, testDate: Date) {
-    this.response = { user, "testDate": testDate, "quarantineEndDate": testDate }
+    this.quarantineEndDate = new Date();
+    this.quarantineEndDate.setDate(testDate.getDate() + 10);
+    this.response = { user, "testDate": testDate, "quarantineEndDate": this.quarantineEndDate }
     console.log(this.response);
     this.UserService.addCase(user.id, this.response).subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
