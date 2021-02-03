@@ -10,6 +10,10 @@ import { DialogData } from '../models/add-case-dialog.model';
 })
 export class AddCaseDialogueComponent {
 
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: DialogData, public dialogRef: MatDialogRef<AddCaseDialogueComponent>) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
 }
