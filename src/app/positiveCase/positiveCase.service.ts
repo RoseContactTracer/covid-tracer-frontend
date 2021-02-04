@@ -7,10 +7,10 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PositiveCaseService {
-  
+
   private casesUrl: string;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.casesUrl = 'http://localhost:42069/positive-case'
   }
 
