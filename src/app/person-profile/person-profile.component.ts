@@ -22,8 +22,6 @@ export class PersonProfileComponent implements OnInit {
   testDate: Date;
   quarantineEndDate: Date;
 
-  @ViewChild(MatButton) button: MatButton;
-
   constructor(private UserService: UserService, private _Activatedroute: ActivatedRoute, private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -43,7 +41,7 @@ export class PersonProfileComponent implements OnInit {
     const bodyRect = document.body.getBoundingClientRect();
     const dialogRef = this.dialog.open(AddCaseDialogueComponent, {
       width: '500px',
-      data: { "testDate": this.testDate, "quarantineEndDate": this.quarantineEndDate },
+      data: { "testDate": this.testDate },
     });
 
     dialogRef.afterClosed().subscribe(result => {
