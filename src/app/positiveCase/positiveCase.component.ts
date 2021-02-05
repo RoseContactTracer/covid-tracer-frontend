@@ -21,12 +21,20 @@ export class PositiveCaseComponent implements OnInit, OnDestroy {
   constructor(private caseService: PositiveCaseService) { }
 
   ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {
     this.getCases();
   }
 
   ngOnDestroy(): void {
     this.destroyed.next();
     this.destroyed.complete();
+  }
+
+  onPageFired(event) {
+    this.getCases();
   }
 
   private getCases(): void {

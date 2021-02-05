@@ -28,4 +28,5 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </table>
-<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [pageIndex]="0" (page)="onPageFired($event)">
+</mat-paginator>

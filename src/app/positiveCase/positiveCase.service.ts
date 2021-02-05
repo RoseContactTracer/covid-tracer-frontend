@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
@@ -14,7 +14,12 @@ export class PositiveCaseService {
     this.casesUrl = 'http://localhost:42069/positive-case'
   }
 
-  public getCases(): Observable<any> {
+  public getCases(pageNum?: number, entriesPerPage?: number): Observable<any> {
+    if (pageNum && entriesPerPage) {
+      let params = new HttpParams().set('pageNum', '' + pageNum).set('entriesPerPage', '' + entriesPerPage);
+      console.log(params);
+      return this.http.get<any>(this.casesUrl, { params });
+    }
     return this.http.get<any>(this.casesUrl);
   }
 
