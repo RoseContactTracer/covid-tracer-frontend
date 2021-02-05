@@ -9,7 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialogModule, MatDatepickerModule, MatNativeDateModule } from "@angular/material";
+import { MatDialogModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule } from "@angular/material";
 import { PositiveCaseComponent } from './positiveCase/positiveCase.component'
 import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
 import { PositiveCaseService } from './positiveCase/positiveCase.service';
@@ -41,7 +41,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatPaginatorModule
   ],
   providers: [PositiveCaseService, UserService],
   bootstrap: [AppComponent],
