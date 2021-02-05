@@ -19,7 +19,7 @@ export class UserlistComponent implements OnInit {
   constructor(private UserService: UserService) { }
 
   ngOnInit() {
-
+    this.getPeople();
   }
 
   onPageFired(event) {

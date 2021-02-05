@@ -21,7 +21,7 @@ export class PositiveCaseComponent implements OnInit, OnDestroy {
   constructor(private caseService: PositiveCaseService) { }
 
   ngOnInit() {
-
+    this.getCases();
   }
 
   ngAfterViewInit() {
