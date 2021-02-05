@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule } from "@angular/material";
 import { PositiveCaseComponent } from './positiveCase/positiveCase.component'
 import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
@@ -42,7 +43,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ],
   providers: [PositiveCaseService, UserService],
   bootstrap: [AppComponent],
