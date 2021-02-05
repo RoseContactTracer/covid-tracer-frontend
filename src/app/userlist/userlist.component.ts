@@ -22,8 +22,16 @@ export class UserlistComponent implements OnInit {
 
   }
 
+  onPageFired(event) {
+    this.getPeople();
+  }
+
   ngAfterViewInit() {
-    this.UserService.findAll(this.paginator.pageSize).subscribe((data: User[]) => {
+    this.getPeople();
+  }
+
+  getPeople() {
+    this.UserService.findAll().subscribe((data: User[]) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });

@@ -13,9 +13,8 @@ export class UserService {
     this.usersUrl = 'http://localhost:42069/userlist'
   }
 
-  public findAll(entriesPerPage: number): Observable<User[]> {
-    let params = new HttpParams().set('entriesPerPage', '' + entriesPerPage);
-    return this.http.get<User[]>(this.usersUrl, { params });
+  public findAll(): Observable<User[]> {
+    return this.http.get<User[]>(this.usersUrl);
   }
 
   public findByID(id: number): Observable<User[]> {
