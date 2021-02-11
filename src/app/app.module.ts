@@ -19,6 +19,7 @@ import { UserService } from './user/user.service';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
 import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     AssignedCasesComponent,
     PersonProfileComponent,
     AddCaseDialogueComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
