@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import "rosefire";
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,28 +10,14 @@ import "rosefire";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
-  login() {
-    Rosefire.signIn(environment.registryToken, (error, rfUser: RosefireUser) => {
-      if (error) {
-        // User not logged in!
-        console.error(error);
-        return;
-      } else {
-        // Use the token to authenticate with your server
-        // checkout the server SDKs for more information.
-        
-      }
-    });
-  }
-
-  logout() {
-    //hmmm
+  handleLogin() {
+    this.loginService.login();
   }
 
   ngOnInit() {
-
+    this.handleLogin();
   }
 
 }
