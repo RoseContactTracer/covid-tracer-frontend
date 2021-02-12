@@ -7,6 +7,7 @@ import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component'
 import { config } from 'rxjs';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
 import { LoginComponent } from './login/login.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

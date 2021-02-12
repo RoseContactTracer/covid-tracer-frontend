@@ -21,6 +21,7 @@ import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { environment } from 'src/environments/environment';
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService],
+  providers: [PositiveCaseService, UserService, LoginService],
   bootstrap: [AppComponent],
   entryComponents: [AddCaseDialogueComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
