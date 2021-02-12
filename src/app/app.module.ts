@@ -20,6 +20,7 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
 import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
