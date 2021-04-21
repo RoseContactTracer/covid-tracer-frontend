@@ -19,6 +19,7 @@ import { UserService } from './user/user.service';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
 import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.component';
 import { FormsModule } from '@angular/forms';
+import { AssignContactTracerDialogueComponentComponent } from './assign-contact-tracer-dialogue-component/assign-contact-tracer-dialogue-component.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     AssignedCasesComponent,
     PersonProfileComponent,
     AddCaseDialogueComponent,
+    AssignContactTracerDialogueComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,7 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [PositiveCaseService, UserService],
   bootstrap: [AppComponent],
-  entryComponents: [AddCaseDialogueComponent],
+  entryComponents: [AddCaseDialogueComponent, AssignContactTracerDialogueComponentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

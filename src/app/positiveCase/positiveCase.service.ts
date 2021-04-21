@@ -23,4 +23,9 @@ export class PositiveCaseService {
     return this.http.get<any>(this.casesUrl);
   }
 
+  public AssignTracer(UserId?: number, TracerId?: number): Observable<any> {
+    //TODO is this post how to send to this URL with that param??
+    return this.http.post<any>(this.casesUrl + '/' + UserId.toString, TracerId);
+  }
+
 }
