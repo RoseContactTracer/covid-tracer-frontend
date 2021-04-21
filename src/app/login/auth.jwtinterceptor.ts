@@ -14,17 +14,18 @@ export class JwtInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
-    return next.handle(request).pipe(tap((event: HttpEvent<any>) => {
-        if (event instanceof HttpResponse) {
-            this.loginService.token = event.headers.get('Authorization');
-        }
-        }, (err: any) => {
-            if (err instanceof HttpErrorResponse) {
-                if (err.status === 401) {
-                    console.error('oof');
-                    this.loginService.logout();
-                }
-            }
-        }));
+    // return next.handle(request).pipe(tap((event: HttpEvent<any>) => {
+    //     if (event instanceof HttpResponse) {
+    //         this.loginService.token = event.headers.get('Authorization');
+    //     }
+    //     }, (err: any) => {
+    //         if (err instanceof HttpErrorResponse) {
+    //             if (err.status === 401) {
+    //                 console.error('oof');
+    //                 this.loginService.logout();
+    //             }
+    //         }
+    //     }));
+        return next.handle(request);
     }
 }
