@@ -52,10 +52,7 @@ import { JwtInterceptor } from './login/auth.jwtinterceptor';
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService, LoginService,
-              {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-              {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
-              ],
+  providers: [PositiveCaseService, UserService, LoginService],
   bootstrap: [AppComponent],
   entryComponents: [AddCaseDialogueComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
