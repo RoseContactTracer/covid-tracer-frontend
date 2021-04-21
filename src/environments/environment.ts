@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  registryToken: "a0afb285-afa4-434b-8253-eec9ed898185"
+  registryToken: "5e348d8e-2723-4cb5-91f4-2a3de5810fa8"
 };
 
 /*

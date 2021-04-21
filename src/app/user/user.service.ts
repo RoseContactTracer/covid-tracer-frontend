@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
 
@@ -20,6 +20,11 @@ export class UserService {
   public findByID(id: number): Observable<User[]> {
     console.log(id)
     return this.http.get<User[]>(this.usersUrl + '/' + id);
+  }
+
+  public findByEmail(email: string): Observable<User[]> {
+    console.log(email);
+    return this.http.get<User[]>(this.usersUrl + '/' + email);
   }
 
   public addCase(id: number, user: User[]): Observable<User[]> {
