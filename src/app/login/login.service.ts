@@ -32,6 +32,7 @@ export class LoginService {
         this.user = rfUser;
         this.token = rfUser.token;
         this.authenticated = true;
+        console.log(rfUser.name);
         this.router.navigateByUrl('/dashboard');
       }
     });
