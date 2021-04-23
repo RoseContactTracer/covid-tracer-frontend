@@ -10,4 +10,8 @@ export class User {
         address: string;
         id: number;
     }
+    role: {
+        id: number;
+        role: string;
+    }
 }

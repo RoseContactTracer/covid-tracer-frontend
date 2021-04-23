@@ -28,21 +28,15 @@ export class LoginService {
         console.error(error);
         return;
       } else {
-        //this.getRole();
         this.user = rfUser;
+        this.getRole();
         this.token = rfUser.token;
         this.authenticated = true;
         console.log(rfUser.username);
-        console.log(this.token);
         this.router.navigateByUrl('/dashboard');
       }
     });
   }
-
-  // private setToken(token: String) {
-  //   console.log('hello?');
-  //   this.http.get<any>('http://localhost:42069/login/settoken/' + token);
-  // }
 
   public logout() {
     this.authenticated = false;
@@ -50,15 +44,42 @@ export class LoginService {
     this.router.navigateByUrl('/login');
   }
 
-  // getRole() {
-    //this.personService.findByEmail(this.user.email).subscribe((response: User[]) => {
-      //let userRow = response.json(); find out how to get this to work? idk if theres a better way or something
-      //this.role = userRow   not sure exactly what this is going to look like yet
-    //});
-  // }
+  getRole() {
+    this.personService.findByEmail(this.user.email).subscribe((response: User[]) => {
+      this.role = response[0].role.role;
+    });
+  }
 
   isAuthenticated() {
     return this.authenticated;
+  }
+
+  roleIsPerson() {
+    return this.role === 'Person';
+  }
+
+  roleIsHealthServices() {
+    return this.role === 'Health Services';
+  }
+
+  roleIsTracer() {
+    return this.role === 'Contact Tracer';
+  }
+
+  roleIsHeadTracer() {
+    return this.role === 'Head Contact Tracer';
+  }
+
+  roleIsStudentAffairs() { //this should be split into support staff and head support staff
+    return this.role === 'Student Affairs';
+  }
+
+  roleIsAdmin() {
+    return this.role === 'System Admin';
+  }
+
+  roleIsUnspecified() {
+    return this.role === 'Role Unspecified';
   }
 
 }
