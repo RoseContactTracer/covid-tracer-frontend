@@ -14,7 +14,7 @@ import { AssignContactTracerDialogueComponentComponent } from '../assign-contact
   styleUrls: ['./positiveCase.component.css']
 })
 export class PositiveCaseComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate'];
+  displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate','actions'];
   dataSource: MatTableDataSource<any>;
 
   private destroyed: Subject<boolean> = new Subject();
