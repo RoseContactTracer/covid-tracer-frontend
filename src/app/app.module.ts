@@ -20,6 +20,7 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
 import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.component';
 import { FormsModule } from '@angular/forms';
 import { PoolsComponent } from './pools/pools.component';
+import { PoolsService } from './pools/pools.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { PoolsComponent } from './pools/pools.component';
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService],
+  providers: [PositiveCaseService, UserService, PoolsService],
   bootstrap: [AppComponent],
   entryComponents: [AddCaseDialogueComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
