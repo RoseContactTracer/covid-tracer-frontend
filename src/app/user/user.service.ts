@@ -28,11 +28,12 @@ export class UserService {
     return this.http.get<User[]>(this.usersUrl + '/email/' + email)
             .pipe(
               map((data: User[]) => {
+                console.log('ligma');
                 return data;
               }), catchError( error => {
                 return throwError( 'Something went wrong!' );
               })
-            )
+            );
   }
 
   public addCase(id: number, user: User[]): Observable<User[]> {

@@ -8,6 +8,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,10 @@ import { Observable } from 'rxjs';
 export class LoginService {
 
   authenticated = false;
-  user;
+  public username: string;
+  public token: string;
   role;
-  public token;
+  private user: RosefireUser;
 
   constructor(private router: Router, private personService: UserService, private http: HttpClient) { }
 
@@ -29,10 +31,11 @@ export class LoginService {
         return;
       } else {
         this.user = rfUser;
-        this.getRole();
+        this.username = rfUser.username;
         this.token = rfUser.token;
+        this.getRole();
         this.authenticated = true;
-        console.log(rfUser.username);
+        console.log(this.role);
         this.router.navigateByUrl('/dashboard');
       }
     });
