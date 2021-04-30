@@ -24,6 +24,8 @@ import { environment } from 'src/environments/environment';
 import { LoginService } from './login/login.service';
 import { AuthInterceptor } from './login/auth.interceptor';
 import { AssignContactTracerDialogueComponentComponent } from './assign-contact-tracer-dialogue-component/assign-contact-tracer-dialogue-component.component';
+import { PoolsComponent } from './pools/pools.component';
+import { PoolsService } from './pools/pools.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AssignContactTracerDialogueComponentComponent } from './assign-contact-
     PersonProfileComponent,
     AddCaseDialogueComponent,
     LoginComponent,
-    AssignContactTracerDialogueComponentComponent
+    AssignContactTracerDialogueComponentComponent,
+    PoolsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ import { AssignContactTracerDialogueComponentComponent } from './assign-contact-
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService, LoginService,
+  providers: [PositiveCaseService, UserService, LoginService, PoolsService,
               {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
               ],
   bootstrap: [AppComponent],
