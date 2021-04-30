@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'userlist', component: UserlistComponent },
   { path: 'positive-case', component: PositiveCaseComponent },
-  { path: 'AssignedCases', component: AssignedCasesComponent },
+  { path: 'positive-case/AssignedCases', component: AssignedCasesComponent },
   { path: 'userlist/:id', component: PersonProfileComponent}
 
 ];
