@@ -8,10 +8,12 @@ import { Pool } from '../models/pool.model';
 })
 export class PoolsService {
 
+  private poolUrl = 'http://localhost:42069/positive-pool';
+
   constructor(private http: HttpClient) { }
 
   getPools(): Observable<Pool[]> {
-    return this.http.get<Pool[]>('http://localhost:42069/positive-pool');
+    return this.http.get<Pool[]>(this.poolUrl);
   }
 
 }

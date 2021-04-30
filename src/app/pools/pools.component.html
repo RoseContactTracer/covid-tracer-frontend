@@ -3,34 +3,38 @@
   <ng-container matColumnDef="Name 1">
     <mat-header-cell *matHeaderCellDef> Name 1 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-button (click)="openPage(row.person1.id)"> {{row.person1.firstName}}</button>
+      <button mat-button (click)="openPage(row.people[0].id)"> {{row.people[0].firstName 
+                                                              + ' ' + row.people[0].lastName}}</button>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Name 2">
     <mat-header-cell *matHeaderCellDef> Name 2 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-button (click)="openPage(row.person2.id)"> {{row.person2.firstName}}</button>
+      <button mat-button (click)="openPage(row.people[1].id)"> {{row.people[1].firstName 
+                                                              + ' ' + row.people[1].lastName}}</button>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Name 3">
     <mat-header-cell *matHeaderCellDef> Name 3 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-button (click)="openPage(row.person3.id)"> {{row.person3.firstName}}</button>
+      <button mat-button (click)="openPage(row.people[2].id)"> {{row.people[2].firstName 
+                                                              + ' ' + row.people[2].lastName}}</button>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Name 4">
     <mat-header-cell *matHeaderCellDef> Name 4 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-button (click)="openPage(row.person4.id)"> {{row.person4.firstName}}</button>
+      <button mat-button (click)="openPage(row.people[3].id)"> {{row.people[3].firstName 
+                                                              + ' ' + row.people[3].lastName}}</button>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Date">
     <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.Date}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.date}} </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
