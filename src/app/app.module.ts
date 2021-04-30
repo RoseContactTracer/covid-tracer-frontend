@@ -23,7 +23,6 @@ import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
 import { LoginService } from './login/login.service';
 import { AuthInterceptor } from './login/auth.interceptor';
-import { JwtInterceptor } from './login/auth.jwtinterceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +51,9 @@ import { JwtInterceptor } from './login/auth.jwtinterceptor';
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService, LoginService],
+  providers: [PositiveCaseService, UserService, LoginService,
+              {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+              ],
   bootstrap: [AppComponent],
   entryComponents: [AddCaseDialogueComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

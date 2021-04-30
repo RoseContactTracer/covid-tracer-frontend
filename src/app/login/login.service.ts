@@ -8,6 +8,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,10 @@ import { Observable } from 'rxjs';
 export class LoginService {
 
   authenticated = false;
-  user;
+  public username: string;
+  public token: string;
   role;
-  public token;
+  private user: RosefireUser;
 
   constructor(private router: Router, private personService: UserService, private http: HttpClient) { }
 
@@ -28,20 +30,17 @@ export class LoginService {
         console.error(error);
         return;
       } else {
-        //this.getRole();
         this.user = rfUser;
+        this.username = rfUser.username;
         this.token = rfUser.token;
+        this.getRole();
         this.authenticated = true;
         console.log(rfUser.name);
+        console.log(this.role);
         this.router.navigateByUrl('/dashboard');
       }
     });
   }
-
-  // private setToken(token: String) {
-  //   console.log('hello?');
-  //   this.http.get<any>('http://localhost:42069/login/settoken/' + token);
-  // }
 
   public logout() {
     this.authenticated = false;
@@ -49,15 +48,42 @@ export class LoginService {
     this.router.navigateByUrl('/login');
   }
 
-  // getRole() {
-    //this.personService.findByEmail(this.user.email).subscribe((response: User[]) => {
-      //let userRow = response.json(); find out how to get this to work? idk if theres a better way or something
-      //this.role = userRow   not sure exactly what this is going to look like yet
-    //});
-  // }
+  getRole() {
+    this.personService.findByEmail(this.user.email).subscribe((response: User[]) => {
+      this.role = response[0].role.role;
+    });
+  }
 
   isAuthenticated() {
     return this.authenticated;
+  }
+
+  roleIsPerson() {
+    return this.role === 'Person';
+  }
+
+  roleIsHealthServices() {
+    return this.role === 'Health Services';
+  }
+
+  roleIsTracer() {
+    return this.role === 'Contact Tracer';
+  }
+
+  roleIsHeadTracer() {
+    return this.role === 'Head Contact Tracer';
+  }
+
+  roleIsStudentAffairs() { //this should be split into support staff and head support staff
+    return this.role === 'Student Affairs';
+  }
+
+  roleIsAdmin() {
+    return this.role === 'System Admin';
+  }
+
+  roleIsUnspecified() {
+    return this.role === 'Role Unspecified';
   }
 
 }

@@ -10,15 +10,17 @@
       <mat-grid-tile routerLink="/dashboard">Dashboard</mat-grid-tile>
     </div>
     
-    <div [hidden]="!login.isAuthenticated()">
+    <div [hidden]="!login.isAuthenticated() || login.roleIsPerson() || login.roleIsUnspecified()">
       <mat-grid-tile routerLink="/userlist">User List</mat-grid-tile>
     </div>
 
-    <div [hidden]="!login.isAuthenticated()">
+    <div [hidden]="!login.isAuthenticated() || !(login.roleIsHealthServices() || login.roleIsAdmin() ||
+                        login.roleIsHeadTracer() || login.roleIsStudentAffairs())">
       <mat-grid-tile routerLink="/positive-case">Positive Cases</mat-grid-tile>
     </div>
 
-    <div [hidden]="!login.isAuthenticated()">
+    <div [hidden]="!login.isAuthenticated() || !(login.roleIsTracer() || login.roleIsHeadTracer() || 
+                        login.roleIsAdmin())">
       <mat-grid-tile routerLink="/AssignedCases">Assigned Cases</mat-grid-tile>
     </div>
   </mat-grid-list>
