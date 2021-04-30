@@ -19,13 +19,16 @@ import { UserService } from './user/user.service';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
 import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.component';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
 import { LoginService } from './login/login.service';
 import { AuthInterceptor } from './login/auth.interceptor';
 import { AssignContactTracerDialogueComponentComponent } from './assign-contact-tracer-dialogue-component/assign-contact-tracer-dialogue-component.component';
+=======
 import { PoolsComponent } from './pools/pools.component';
 import { PoolsService } from './pools/pools.service';
+>>>>>>> hanseljt/feature/029/positive-pools
 
 @NgModule({
   declarations: [
@@ -36,9 +39,12 @@ import { PoolsService } from './pools/pools.service';
     AssignedCasesComponent,
     PersonProfileComponent,
     AddCaseDialogueComponent,
+<<<<<<< HEAD
     LoginComponent,
-    AssignContactTracerDialogueComponentComponent,
-    PoolsComponent
+    AssignContactTracerDialogueComponentComponent
+=======
+    PoolsComponent,
+>>>>>>> hanseljt/feature/029/positive-pools
   ],
   imports: [
     BrowserModule,
@@ -56,9 +62,13 @@ import { PoolsService } from './pools/pools.service';
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService, LoginService, PoolsService
-              //{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+<<<<<<< HEAD
+  providers: [PositiveCaseService, UserService, LoginService,
+              {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
               ],
+=======
+  providers: [PositiveCaseService, UserService, PoolsService],
+>>>>>>> hanseljt/feature/029/positive-pools
   bootstrap: [AppComponent],
   entryComponents: [AddCaseDialogueComponent, AssignContactTracerDialogueComponentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

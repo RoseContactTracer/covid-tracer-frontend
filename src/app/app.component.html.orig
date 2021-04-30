@@ -1,0 +1,39 @@
+<div style="text-align:center">
+  <mat-toolbar title={{title}}>
+    <mat-grid-list cols="2">
+      <mat-icon aria-hidden="false" style="padding-right: 10px; vertical-align: center;">home</mat-icon>
+      <span style="vertical-align:text-bottom;">{{title}}</span>     
+    </mat-grid-list>
+  </mat-toolbar>
+  <mat-grid-list cols="3" rowHeight="50px" gutterSize="5px">
+<<<<<<< HEAD
+    <div [hidden]="!login.isAuthenticated()">
+      <mat-grid-tile routerLink="/dashboard">Dashboard</mat-grid-tile>
+    </div>
+    
+    <div [hidden]="!login.isAuthenticated() || login.roleIsPerson() || login.roleIsUnspecified()">
+      <mat-grid-tile routerLink="/userlist">User List</mat-grid-tile>
+    </div>
+
+    <div [hidden]="!login.isAuthenticated() || !(login.roleIsHealthServices() || login.roleIsAdmin() ||
+                        login.roleIsHeadTracer() || login.roleIsStudentAffairs())">
+      <mat-grid-tile routerLink="/positive-case">Positive Cases</mat-grid-tile>
+    </div>
+
+    <div [hidden]="!login.isAuthenticated() || !(login.roleIsTracer() || login.roleIsHeadTracer() || 
+                        login.roleIsAdmin())">
+      <mat-grid-tile routerLink="/AssignedCases">Assigned Cases</mat-grid-tile>
+    </div>
+=======
+    <mat-grid-tile routerLink="/dashboard">Dashboard</mat-grid-tile>
+    <mat-grid-tile routerLink="/userlist">User List</mat-grid-tile>
+    <mat-grid-tile routerLink="/positive-case">Positive Cases</mat-grid-tile>
+    <mat-grid-tile routerLink="/AssignedCases">Assigned Cases</mat-grid-tile>
+    <mat-grid-tile routerLink="/positive-pool">Positive Pools</mat-grid-tile>
+>>>>>>> hanseljt/feature/029/positive-pools
+  </mat-grid-list>
+
+    <router-outlet></router-outlet>
+</div>
+
+

@@ -33,10 +33,13 @@ export class LoginService {
         this.user = rfUser;
         this.username = rfUser.username;
         this.token = rfUser.token;
-        this.role = "Health Services";
+        this.getRole();
         this.authenticated = true;
+<<<<<<< HEAD
         console.log(rfUser.name);
+=======
         console.log(this.role);
+>>>>>>> hanseljt/feature/014/initial-login-page
         this.router.navigateByUrl('/dashboard');
       }
     });
@@ -48,11 +51,11 @@ export class LoginService {
     this.router.navigateByUrl('/login');
   }
 
-  // getRole() {
-  //   this.personService.findByEmail(this.user.email).subscribe((response: User[]) => {
-  //     this.role = response[0].role.role;
-  //   });
-  // }
+  getRole() {
+    this.personService.findByEmail(this.user.email).subscribe((response: User[]) => {
+      this.role = response[0].role.role;
+    });
+  }
 
   isAuthenticated() {
     return this.authenticated;
