@@ -7,12 +7,12 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AssignedCasesService {
-  AssignedCasesURL = 'THIS IS THE URL TO THE ENDPOINT';
+  AssignedCasesURL = 'http://localhost:42069/positive-case/assignedCases';
 
   constructor(private http: HttpClient) { }
 
 
-  getAssignedCases() {
+  getAssignedCases(): Observable<any> {
     return this.http.get(this.AssignedCasesURL);
   }
 }
