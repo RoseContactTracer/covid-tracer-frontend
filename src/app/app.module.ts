@@ -20,6 +20,7 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
 import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.component';
 import { FormsModule } from '@angular/forms';
 import { AssignContactTracerDialogueComponentComponent } from './assign-contact-tracer-dialogue-component/assign-contact-tracer-dialogue-component.component';
+import { AssignedCasesService } from './assigned-cases.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { AssignContactTracerDialogueComponentComponent } from './assign-contact-
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService],
+  providers: [PositiveCaseService, UserService, AssignedCasesService],
   bootstrap: [AppComponent],
   entryComponents: [AddCaseDialogueComponent, AssignContactTracerDialogueComponentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
