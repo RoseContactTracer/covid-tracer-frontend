@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
 import { LoginService } from './login/login.service';
 import { AuthInterceptor } from './login/auth.interceptor';
+import { AssignContactTracerDialogueComponentComponent } from './assign-contact-tracer-dialogue-component/assign-contact-tracer-dialogue-component.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthInterceptor } from './login/auth.interceptor';
     AssignedCasesComponent,
     PersonProfileComponent,
     AddCaseDialogueComponent,
-    LoginComponent
+    LoginComponent,
+    AssignContactTracerDialogueComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ import { AuthInterceptor } from './login/auth.interceptor';
               {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
               ],
   bootstrap: [AppComponent],
-  entryComponents: [AddCaseDialogueComponent],
+  entryComponents: [AddCaseDialogueComponent, AssignContactTracerDialogueComponentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
