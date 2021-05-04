@@ -71,7 +71,6 @@ export class PoolsComponent implements OnInit {
     this.poolService.addPool(result).subscribe(data => {
       this.getPools();
     });
-    // this.getPools();
   }
 
 }
