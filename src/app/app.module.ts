@@ -26,6 +26,7 @@ import { AuthInterceptor } from './login/auth.interceptor';
 import { AssignContactTracerDialogueComponentComponent } from './assign-contact-tracer-dialogue-component/assign-contact-tracer-dialogue-component.component';
 import { PoolsComponent } from './pools/pools.component';
 import { PoolsService } from './pools/pools.service';
+import { AddPoolDialogComponent } from './add-pool-dialog/add-pool-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PoolsService } from './pools/pools.service';
     AddCaseDialogueComponent,
     LoginComponent,
     AssignContactTracerDialogueComponentComponent,
-    PoolsComponent
+    PoolsComponent,
+    AddPoolDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,9 @@ import { PoolsService } from './pools/pools.service';
               //{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
               ],
   bootstrap: [AppComponent],
-  entryComponents: [AddCaseDialogueComponent, AssignContactTracerDialogueComponentComponent],
+  entryComponents: [AddCaseDialogueComponent, 
+                    AssignContactTracerDialogueComponentComponent,
+                    AddPoolDialogComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

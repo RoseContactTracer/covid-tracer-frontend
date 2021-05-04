@@ -6,10 +6,7 @@ export class User {
     roseID: string;
     email: string;
     phoneNumber: string;
-    housingLocation: {
-        address: string;
-        id: number;
-    }
+    housingLocation: String;
     role: {
         id: number;
         role: string;

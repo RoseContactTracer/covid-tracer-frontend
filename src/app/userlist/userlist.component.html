@@ -11,7 +11,7 @@
   </ng-container>
 
   <ng-container matColumnDef="lastName">
-    <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
   </ng-container>
 
@@ -32,7 +32,7 @@
 
   <ng-container matColumnDef="address">
     <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.housingLocation.address}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.housingLocation}} </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -2,3 +2,23 @@ table {
     width: 100%;
     text-align: left;
 }
+
+.button-addPool {
+    font-size: 25px;
+    margin: 20px 2px;
+    margin-left: 70%;
+    background-color: firebrick;
+    color: floralwhite;
+    
+}
+
+.button-addPool:hover {
+    font-size: 25px;
+    margin: 20px 2px;
+    margin-left: 70%;
+    background-color: firebrick;
+    color: floralwhite;
+    border-color: black;
+    border-style: solid;
+    
+}
