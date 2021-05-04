@@ -23,7 +23,11 @@
                         login.roleIsAdmin())">
       <mat-grid-tile routerLink="/AssignedCases">Assigned Cases</mat-grid-tile>
     </div>
-    <mat-grid-tile routerLink="/positive-pool">Positive Pools</mat-grid-tile>
+
+    <div [hidden]="!login.isAuthenticated() || !(login.roleIsHealthServices() || login.roleIsAdmin() ||
+                         login.roleIsStudentAffairs() || login.roleIsHeadTracer())">
+      <mat-grid-tile routerLink="/positive-pool">Positive Pools</mat-grid-tile>
+    </div>
   </mat-grid-list>
 
     <router-outlet></router-outlet>

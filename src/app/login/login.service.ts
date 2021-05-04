@@ -48,11 +48,11 @@ export class LoginService {
     this.router.navigateByUrl('/login');
   }
 
-  // getRole() {
-  //   this.personService.findByEmail(this.user.email).subscribe((response: User[]) => {
-  //     this.role = response[0].role.role;
-  //   });
-  // }
+  getRole() {
+    this.personService.findByEmail(this.user.email).subscribe((response: User[]) => {
+      this.role = response[0].role.role;
+    });
+  }
 
   isAuthenticated() {
     return this.authenticated;
