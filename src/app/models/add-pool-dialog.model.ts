@@ -1,5 +1,3 @@
-import { User } from "./user.model";
-
 export interface PoolDialogData {
     person1Info: String;
     person2Info: String;
