@@ -11,7 +11,7 @@
     </div>
     
     <div [hidden]="!login.isAuthenticated() || login.roleIsPerson() || login.roleIsUnspecified()">
-      <mat-grid-tile routerLink="/userlist">User List</mat-grid-tile>
+      <mat-grid-tile routerLink="/userlist">Person List</mat-grid-tile>
     </div>
 
     <div [hidden]="!login.isAuthenticated() || !(login.roleIsHealthServices() || login.roleIsAdmin() ||
@@ -21,9 +21,14 @@
 
     <div [hidden]="!login.isAuthenticated() || !(login.roleIsTracer() || login.roleIsHeadTracer() || 
                         login.roleIsAdmin())">
-      <mat-grid-tile routerLink="/AssignedCases">Assigned Cases</mat-grid-tile>
+      <mat-grid-tile routerLink="/positive-case/AssignedCases">Assigned Cases</mat-grid-tile>
     </div>
-    <mat-grid-tile routerLink="/positive-pool">Positive Pools</mat-grid-tile>
+
+    <div [hidden]="!login.isAuthenticated() || !(login.roleIsHealthServices() || login.roleIsAdmin() ||
+                         login.roleIsStudentAffairs() || login.roleIsHeadTracer())">
+      <mat-grid-tile routerLink="/positive-pool">Positive Pools</mat-grid-tile>
+    </div>
+
   </mat-grid-list>
 
     <router-outlet></router-outlet>

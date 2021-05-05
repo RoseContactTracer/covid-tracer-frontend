@@ -27,6 +27,7 @@ import { AssignContactTracerDialogueComponentComponent } from './assign-contact-
 import { PoolsComponent } from './pools/pools.component';
 import { PoolsService } from './pools/pools.service';
 import { AddPoolDialogComponent } from './add-pool-dialog/add-pool-dialog.component';
+import { AssignedCasesService } from './assigned-cases.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { AddPoolDialogComponent } from './add-pool-dialog/add-pool-dialog.compon
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService, LoginService, PoolsService
+  providers: [PositiveCaseService, UserService, LoginService, PoolsService, AssignedCasesService
               //{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
               ],
   bootstrap: [AppComponent],

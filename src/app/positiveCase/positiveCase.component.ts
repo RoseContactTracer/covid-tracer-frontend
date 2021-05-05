@@ -69,13 +69,13 @@ export class PositiveCaseComponent implements OnInit, OnDestroy {
     });
   }
 
-    assignContactTracer(user: User,tracer: User): void {
-      this.Tracer = tracer;
-      this.response = { tracer};
-      console.log(this.response);
-      this.caseService.AssignTracer(user.id, tracer.id).subscribe(data => {
-        this.dataSource = new MatTableDataSource(data);
+  assignContactTracer(user: User,tracer: User): void {
+    this.Tracer = tracer;
+    this.response = { tracer};
+    console.log(this.response);
+    this.caseService.AssignTracer(user.id, tracer.id).subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
     });
-
   }
+
 }

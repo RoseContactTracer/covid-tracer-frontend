@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { Case } from './models/case.model'
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AssignedCasesService {
   constructor(private http: HttpClient) { }
 
 
-  getAssignedCases(): Observable<any> {
-    return this.http.get(this.AssignedCasesURL);
+  getAssignedCases(): Observable<Case[]> {
+    return this.http.get<Case[]>(this.AssignedCasesURL);
   }
 }

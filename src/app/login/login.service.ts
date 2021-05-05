@@ -33,7 +33,7 @@ export class LoginService {
         this.user = rfUser;
         this.username = rfUser.username;
         this.token = rfUser.token;
-        this.role = "Health Services";
+        this.role = "System Admin";
         this.authenticated = true;
         console.log(rfUser.name);
         console.log(this.role);
