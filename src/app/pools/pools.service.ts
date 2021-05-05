@@ -13,8 +13,12 @@ export class PoolsService {
 
   constructor(private http: HttpClient) { }
 
-  getPools(): Observable<Pool[]> {
+  getAllPools(): Observable<Pool[]> {
     return this.http.get<Pool[]>(this.poolUrl);
+  }
+
+  getNewPools(): Observable<Pool[]> {
+    return this.http.get<Pool[]>(this.poolUrl + '/new');
   }
 
   addPool(data: PoolDialogData): Observable<Pool[]> {

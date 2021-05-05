@@ -21,18 +21,33 @@ export class PoolsComponent implements OnInit {
   person2Info: String;
   person3Info: String;
   person4Info: String;
+  isShowingOldPools: Boolean = false;
 
   displayedColumns: string[] = ['Name 1', 'Name 2', 'Name 3', 'Name 4', 'Date'];
   dataSource: MatTableDataSource<Pool>;
 
   ngOnInit() {
-    this.getPools();
+    this.getNewPools();
+  }
+
+  private getAllPools() {
+    this.poolService.getAllPools().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
+  }
+
+  private getNewPools() {
+    this.poolService.getNewPools().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
   }
 
   private getPools() {
-    this.poolService.getPools().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
-    });
+    if(this.isShowingOldPools) {
+      this.getAllPools();
+    } else {
+      this.getNewPools();
+    }
   }
 
   private getNameString(person: User): String {
@@ -71,6 +86,11 @@ export class PoolsComponent implements OnInit {
     this.poolService.addPool(result).subscribe(data => {
       this.getPools();
     });
+  }
+
+  toggleOldPools() {
+    this.isShowingOldPools = !this.isShowingOldPools;
+    this.getPools();
   }
 
 }

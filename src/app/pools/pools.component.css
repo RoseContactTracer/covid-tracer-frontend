@@ -4,21 +4,50 @@ table {
 }
 
 .button-addPool {
-    font-size: 25px;
-    margin: 20px 2px;
-    margin-left: 70%;
+    font-size: 23px;
+    margin: 0px 5px;
     background-color: firebrick;
     color: floralwhite;
+    display: inline-block;
     
 }
 
 .button-addPool:hover {
-    font-size: 25px;
-    margin: 20px 2px;
-    margin-left: 70%;
+    font-size: 23px;
+    margin: 0px 5px;
     background-color: firebrick;
     color: floralwhite;
     border-color: black;
     border-style: solid;
+    display: inline-block;
+    
+}
+
+.button-showOldPools {
+    font-size: 23px;
+    margin: 0px 5px;
+    background-color: firebrick;
+    color: floralwhite;
+    display: inline-block;
+    
+}
+
+.button-showOldPools:hover {
+    font-size: 23px;
+    margin: 0px 5px;
+    background-color: firebrick;
+    color: floralwhite;
+    border-color: black;
+    border-style: solid;
+    display: inline-block;
+    
+}
+
+.buttons {
+    width: 800px;
+    margin: 20px 0px;
+    margin-left: 53%;
+    display: inline-block;
+    vertical-align: middle;
     
 }
