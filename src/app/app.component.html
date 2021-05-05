@@ -5,7 +5,7 @@
       <span style="vertical-align:text-bottom;">{{title}}</span>     
     </mat-grid-list>
   </mat-toolbar>
-  <mat-grid-list cols="3" rowHeight="50px" gutterSize="5px">
+  <mat-grid-list cols="5" rowHeight="50px" gutterSize="5px">
     <div [hidden]="!login.isAuthenticated()">
       <mat-grid-tile routerLink="/dashboard">Dashboard</mat-grid-tile>
     </div>
