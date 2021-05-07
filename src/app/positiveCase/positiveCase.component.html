@@ -2,7 +2,7 @@
 
   <ng-container matColumnDef="firstName">
     <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.person?.firstName}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.person.firstName}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="roseID">
@@ -23,6 +23,11 @@
   <ng-container matColumnDef="quarantineEndDate">
     <mat-header-cell *matHeaderCellDef> End of Quarantine </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.quarantineEndDate}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tracer">
+    <mat-header-cell *matHeaderCellDef> Contact Tracer </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{this.getTracerString(row)}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="actions">

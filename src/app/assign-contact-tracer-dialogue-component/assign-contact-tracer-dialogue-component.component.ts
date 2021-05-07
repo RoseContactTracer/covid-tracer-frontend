@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from "@angular/material";
-import { DialogData } from '../models/assign-contact-tracer-dialog.model';
+import { AssignDialogData } from '../models/assign-contact-tracer-dialog.model';
 
 @Component({
   selector: 'app-assign-contact-tracer-dialogue-component',
@@ -10,7 +10,7 @@ import { DialogData } from '../models/assign-contact-tracer-dialog.model';
 })
 export class AssignContactTracerDialogueComponentComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: DialogData, public dialogRef: MatDialogRef<AssignContactTracerDialogueComponentComponent>) { }
+  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: AssignDialogData, public dialogRef: MatDialogRef<AssignContactTracerDialogueComponentComponent>) { }
 
   ngOnInit() {
   }

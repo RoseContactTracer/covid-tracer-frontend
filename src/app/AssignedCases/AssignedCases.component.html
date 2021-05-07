@@ -29,11 +29,11 @@
 
   <ng-container matColumnDef="Tracer">
     <th mat-header-cell *matHeaderCellDef>Assigned Tracer</th>
-    <td mat-cell *matCellDef="let element"> {{element.contactTracer.user.firstName + ' ' +  
-                                                          element.contactTracer.user.lastName}} </td>  
+    <td mat-cell *matCellDef="let element"> {{element.contactTracer.person.firstName + ' ' +  
+                                                          element.contactTracer.person.lastName}} </td>  
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
+
 </table>

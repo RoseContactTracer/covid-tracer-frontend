@@ -7,6 +7,7 @@ import { MatDialog, MatDialogConfig } from "@angular/material";
 import { PositiveCaseService } from './positiveCase.service';
 import { User } from '../models/user.model';
 import { AssignContactTracerDialogueComponentComponent } from '../assign-contact-tracer-dialogue-component/assign-contact-tracer-dialogue-component.component';
+import { Case } from '../models/case.model';
 
 @Component({
   selector: 'app-case',
@@ -14,8 +15,8 @@ import { AssignContactTracerDialogueComponentComponent } from '../assign-contact
   styleUrls: ['./positiveCase.component.css']
 })
 export class PositiveCaseComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate','actions'];
-  dataSource: MatTableDataSource<any>;
+  displayedColumns: string[] = ['firstName', 'roseID', 'phoneNumber', 'address', 'quarantineEndDate', 'tracer', 'actions'];
+  dataSource: MatTableDataSource<Case>;
 
   private destroyed: Subject<boolean> = new Subject();
 
@@ -23,6 +24,7 @@ export class PositiveCaseComponent implements OnInit, OnDestroy {
 
   user: User;
   Tracer: User;
+  tracerEmail: String;
   response;
 
   constructor(private caseService: PositiveCaseService, private dialog: MatDialog) { }
@@ -53,29 +55,40 @@ export class PositiveCaseComponent implements OnInit, OnDestroy {
   }
 
   //TODO is user the right thing to pass in here?
-  openDialogue(user: User): void {
+  openDialogue(positiveCase: Case): void {
     const bodyRect = document.body.getBoundingClientRect();
     const dialogRef = this.dialog.open(AssignContactTracerDialogueComponentComponent, {
       width: '500px',
-      data: { "ContactTracer": this.Tracer },
+      data: { "tracerEmail": this.tracerEmail },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
       if (result) {
-        this.assignContactTracer(user, this.Tracer);
+        this.assignContactTracer(positiveCase, this.tracerEmail);
       }
     });
   }
 
-  assignContactTracer(user: User,tracer: User): void {
-    this.Tracer = tracer;
-    this.response = { tracer};
-    console.log(this.response);
-    this.caseService.AssignTracer(user.id, tracer.id).subscribe(data => {
+  assignContactTracer(positiveCase: Case, tracerEmail: String): void {
+    this.caseService.AssignTracer(positiveCase.id, tracerEmail).subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     });
+  }
+
+  private getTracerString(positiveCase: Case): string {
+    if(positiveCase.contactTracer == null) {
+      return 'Unassigned';
+    }
+    return positiveCase.contactTracer.person.firstName + ' ' + positiveCase.contactTracer.person.lastName;
+  }
+
+  private getAssignString(positiveCase: Case): string {
+    if(positiveCase.contactTracer == null) {
+      return 'Assign a Contact Tracer';
+    }
+    return 'Assign a Different Contact Tracer';
   }
 
 }

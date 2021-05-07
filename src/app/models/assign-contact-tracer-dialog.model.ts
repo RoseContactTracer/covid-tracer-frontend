@@ -1,6 +1,5 @@
 import { User } from './user.model';
 
-export interface DialogData {
-  User: User;
-  ContactTracer: User;
+export interface AssignDialogData {
+  tracerEmail: String;
 } 
