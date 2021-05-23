@@ -3,32 +3,28 @@
   <ng-container matColumnDef="Name 1">
     <mat-header-cell *matHeaderCellDef> Name 1 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-button (click)="openPage(row.people[0].id)"> {{row.people[0].firstName 
-                                                              + ' ' + row.people[0].lastName}}</button>
+      <button mat-button (click)="openPage(row.people[0].id)"> {{getNameString(row.people[0])}}</button>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Name 2">
     <mat-header-cell *matHeaderCellDef> Name 2 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-button (click)="openPage(row.people[1].id)"> {{row.people[1].firstName 
-                                                              + ' ' + row.people[1].lastName}}</button>
+      <button mat-button (click)="openPage(row.people[1].id)"> {{getNameString(row.people[1])}}</button>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Name 3">
     <mat-header-cell *matHeaderCellDef> Name 3 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-button (click)="openPage(row.people[2].id)"> {{row.people[2].firstName 
-                                                              + ' ' + row.people[2].lastName}}</button>
+      <button mat-button (click)="openPage(row.people[2].id)"> {{getNameString(row.people[2])}}</button>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Name 4">
     <mat-header-cell *matHeaderCellDef> Name 4 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-button (click)="openPage(row.people[3].id)"> {{row.people[3].firstName 
-                                                              + ' ' + row.people[3].lastName}}</button>
+      <button mat-button (click)="openPage(row.people[3].id)"> {{getNameString(row.people[3])}}</button>
     </mat-cell>
   </ng-container>
 
@@ -41,3 +37,13 @@
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
 </table>
+
+<div class="buttons">
+
+  <button mat-button 
+    [ngClass]="['button-addPool']" (click)="openDialog()">Insert A New Pool</button>
+
+  <button mat-button
+    [ngClass]="['button-showOldPools']" (click)="toggleOldPools()">Toggle Old Pools</button>
+
+</div>
