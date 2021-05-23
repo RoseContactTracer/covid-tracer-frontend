@@ -14,11 +14,18 @@ import { MatDialogModule, MatDatepickerModule, MatNativeDateModule, MatPaginator
 import { PositiveCaseComponent } from './positiveCase/positiveCase.component'
 import { AssignedCasesComponent } from './AssignedCases/AssignedCases.component';
 import { PositiveCaseService } from './positiveCase/positiveCase.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './user/user.service';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
 import { AddCaseDialogueComponent } from './add-case-dialogue/add-case-dialogue.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { environment } from 'src/environments/environment';
+import { LoginService } from './login/login.service';
+import { AuthInterceptor } from './login/auth.interceptor';
+import { AssignContactTracerDialogueComponentComponent } from './assign-contact-tracer-dialogue-component/assign-contact-tracer-dialogue-component.component';
+import { PoolsComponent } from './pools/pools.component';
+import { PoolsService } from './pools/pools.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +36,9 @@ import { FormsModule } from '@angular/forms';
     AssignedCasesComponent,
     PersonProfileComponent,
     AddCaseDialogueComponent,
+    LoginComponent,
+    AssignContactTracerDialogueComponentComponent,
+    PoolsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +56,11 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatButtonModule
   ],
-  providers: [PositiveCaseService, UserService],
+  providers: [PositiveCaseService, UserService, LoginService, PoolsService
+              //{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+              ],
   bootstrap: [AppComponent],
-  entryComponents: [AddCaseDialogueComponent],
+  entryComponents: [AddCaseDialogueComponent, AssignContactTracerDialogueComponentComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

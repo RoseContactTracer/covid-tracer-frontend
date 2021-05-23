@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { User } from '../models/user.model';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,19 @@ export class UserService {
   public findByID(id: number): Observable<User[]> {
     console.log(id)
     return this.http.get<User[]>(this.usersUrl + '/' + id);
+  }
+
+  public findByEmail(email: string): Observable<User[]> {
+    console.log(email);
+    return this.http.get<User[]>(this.usersUrl + '/email/' + email)
+            .pipe(
+              map((data: User[]) => {
+                console.log('ligma');
+                return data;
+              }), catchError( error => {
+                return throwError( 'Something went wrong!' );
+              })
+            );
   }
 
   public addCase(id: number, user: User[]): Observable<User[]> {
